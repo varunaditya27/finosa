@@ -36,9 +36,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     gap: spacing.md,
     paddingHorizontal: spacing.md,
-    paddingVertical: spacing.md - 4,
+    paddingVertical: spacing.sm + spacing.xs,
     minHeight: 56,
   },
   divider: { borderTopWidth: 1, borderTopColor: colors.hairline },
-  text: { flex: 1, gap: 2 },
+  text: { flex: 1, gap: spacing.xs },
 });

@@ -1,7 +1,7 @@
 import { Tabs } from "expo-router";
 import { AppText } from "@/components/app-text";
 import { Icon, type IconName } from "@/components/icon";
-import { colors, fonts } from "@/theme";
+import { colors } from "@/theme";
 
 const TABS: { name: string; title: string; icon: IconName }[] = [
   { name: "index", title: "Overview", icon: "overview" },
@@ -25,7 +25,7 @@ export default function TabsLayout() {
             title,
             tabBarIcon: ({ focused }) => <Icon name={icon} color={focused ? colors.ink : colors.muted} />,
             tabBarLabel: ({ focused }) => (
-              <AppText style={{ fontFamily: focused ? fonts.bold : fonts.medium, fontSize: 12, lineHeight: 14 }} color={focused ? colors.ink : colors.muted}>
+              <AppText variant={focused ? "tabActive" : "tab"} color={focused ? colors.ink : colors.muted}>
                 {title}
               </AppText>
             ),

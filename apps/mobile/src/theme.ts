@@ -37,6 +37,8 @@ export const type = {
   bodyStrong: { fontFamily: fonts.medium, fontSize: 16, lineHeight: 22 },
   label: { fontFamily: fonts.semibold, fontSize: 14, lineHeight: 18 },
   caption: { fontFamily: fonts.regular, fontSize: 13, lineHeight: 18 },
+  tab: { fontFamily: fonts.medium, fontSize: 12, lineHeight: 14 },
+  tabActive: { fontFamily: fonts.bold, fontSize: 12, lineHeight: 14 },
 } as const satisfies Record<string, TextStyle>;
 
 export const tabular: TextStyle = { fontVariant: ["tabular-nums"] };
