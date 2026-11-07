@@ -72,43 +72,45 @@ export function Overview() {
                 </View>
               </Card>
 
-              <AppText variant="heading" role="heading">
-                Where it went
-              </AppText>
-              {categories.length === 0 ? (
-                <AppText color={colors.muted}>No spending recorded in {formatMonth(month)}.</AppText>
-              ) : (
-                <Card padded={false}>
-                  {categories.map(({ categoryId, total }, index) => {
-                    const share = Number((total * 10000n) / totals.expense) / 100;
-                    const name = categoryName(categoryId);
-                    return (
-                      <Pressable
-                        key={categoryId ?? UNCATEGORIZED}
-                        role="button"
-                        aria-label={`${name}, ${formatRupees(total)}, ${Math.round(share)} percent of spending. Opens the matching transactions.`}
-                        onPress={() =>
-                          router.navigate({ pathname: "/history", params: { month, category: categoryId ?? UNCATEGORIZED } })
-                        }
-                        style={({ pressed }) => [styles.categoryRow, index > 0 && styles.divider, { opacity: pressed ? 0.7 : 1 }]}
-                      >
-                        <View style={styles.categoryTop}>
-                          <AppText variant="bodyStrong">{name}</AppText>
-                          <AppText variant="bodyStrong" numeric>
-                            {formatRupees(total)}
+              <View style={styles.section}>
+                <AppText variant="heading" role="heading">
+                  Where it went
+                </AppText>
+                {categories.length === 0 ? (
+                  <AppText color={colors.muted}>No spending recorded in {formatMonth(month)}.</AppText>
+                ) : (
+                  <Card padded={false}>
+                    {categories.map(({ categoryId, total }, index) => {
+                      const share = Number((total * 10000n) / totals.expense) / 100;
+                      const name = categoryName(categoryId);
+                      return (
+                        <Pressable
+                          key={categoryId ?? UNCATEGORIZED}
+                          role="button"
+                          aria-label={`${name}, ${formatRupees(total)}, ${Math.round(share)} percent of spending. Opens the matching transactions.`}
+                          onPress={() =>
+                            router.navigate({ pathname: "/history", params: { month, category: categoryId ?? UNCATEGORIZED } })
+                          }
+                          style={({ pressed }) => [styles.categoryRow, index > 0 && styles.divider, { opacity: pressed ? 0.7 : 1 }]}
+                        >
+                          <View style={styles.categoryTop}>
+                            <AppText variant="bodyStrong">{name}</AppText>
+                            <AppText variant="bodyStrong" numeric>
+                              {formatRupees(total)}
+                            </AppText>
+                          </View>
+                          <View style={styles.track}>
+                            <View style={[styles.fill, { width: `${share}%` }]} />
+                          </View>
+                          <AppText variant="caption" color={colors.muted}>
+                            {Math.round(share)}% of spending
                           </AppText>
-                        </View>
-                        <View style={styles.track}>
-                          <View style={[styles.fill, { width: `${share}%` }]} />
-                        </View>
-                        <AppText variant="caption" color={colors.muted}>
-                          {Math.round(share)}% of spending
-                        </AppText>
-                      </Pressable>
-                    );
-                  })}
-                </Card>
-              )}
+                        </Pressable>
+                      );
+                    })}
+                  </Card>
+                )}
+              </View>
             </>
           ) : (
             <EmptyState title={`No transactions in ${formatMonth(month)}`} body="Add one, or use the arrows to look at another month.">
@@ -118,7 +120,7 @@ export function Overview() {
         </>
       )}
       <AppText variant="caption" color={colors.muted}>
-        Practice data. No bank is connected, and nothing here is financial advice.
+        This is a practice app. No bank is connected, and nothing here is financial advice.
       </AppText>
     </Screen>
   );
@@ -126,6 +128,7 @@ export function Overview() {
 
 const styles = StyleSheet.create({
   monthRow: { flexDirection: "row", alignItems: "center", justifyContent: "space-between" },
+  section: { gap: spacing.sm },
   summary: { gap: spacing.xs },
   split: { flexDirection: "row", gap: spacing.xl, marginTop: spacing.sm },
   categoryRow: { padding: spacing.md, gap: spacing.xs, minHeight: 72 },
