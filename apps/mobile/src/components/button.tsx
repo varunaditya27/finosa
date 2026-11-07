@@ -1,5 +1,6 @@
-import { Pressable, StyleSheet, type StyleProp, type ViewStyle } from "react-native";
+import { StyleSheet, type StyleProp, type ViewStyle } from "react-native";
 import { AppText } from "@/components/app-text";
+import { FocusPressable } from "@/components/focus-pressable";
 import { colors, minTouch, radius, spacing, type } from "@/theme";
 
 type Variant = "primary" | "secondary" | "quiet";
@@ -20,7 +21,7 @@ type Props = {
 export function Button({ title, onPress, variant = "primary", style }: Props) {
   const look = LOOK[variant];
   return (
-    <Pressable
+    <FocusPressable
       role="button"
       onPress={onPress}
       style={({ pressed }) => [
@@ -32,7 +33,7 @@ export function Button({ title, onPress, variant = "primary", style }: Props) {
       <AppText style={type.label} color={look.text}>
         {title}
       </AppText>
-    </Pressable>
+    </FocusPressable>
   );
 }
 

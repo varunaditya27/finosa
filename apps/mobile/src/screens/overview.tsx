@@ -1,10 +1,11 @@
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import { Pressable, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { AppText } from "@/components/app-text";
 import { Button } from "@/components/button";
 import { Card } from "@/components/card";
 import { EmptyState } from "@/components/empty-state";
+import { FocusPressable } from "@/components/focus-pressable";
 import { IconButton } from "@/components/icon-button";
 import { Screen } from "@/components/screen";
 import { categoryName, UNCATEGORIZED } from "@/domain/categories";
@@ -84,7 +85,8 @@ export function Overview() {
                       const share = Number((total * 10000n) / totals.expense) / 100;
                       const name = categoryName(categoryId);
                       return (
-                        <Pressable
+                        <FocusPressable
+                          ringInset
                           key={categoryId ?? UNCATEGORIZED}
                           role="button"
                           aria-label={`${name}, ${formatRupees(total)}, ${Math.round(share)} percent of spending. Opens the matching transactions.`}
@@ -105,7 +107,7 @@ export function Overview() {
                           <AppText variant="caption" color={colors.muted}>
                             {Math.round(share)}% of spending
                           </AppText>
-                        </Pressable>
+                        </FocusPressable>
                       );
                     })}
                   </Card>

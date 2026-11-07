@@ -1,5 +1,6 @@
-import { Pressable, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { AppText } from "@/components/app-text";
+import { FocusPressable } from "@/components/focus-pressable";
 import { colors, minTouch, radius, spacing } from "@/theme";
 
 type Option<T extends string> = { value: T; label: string };
@@ -23,7 +24,7 @@ export function ChoiceGroup<T extends string>({ label, options, value, onChange,
         {options.map((option) => {
           const selected = option.value === value;
           return (
-            <Pressable
+            <FocusPressable
               key={option.value}
               role="radio"
               aria-checked={selected}
@@ -34,7 +35,7 @@ export function ChoiceGroup<T extends string>({ label, options, value, onChange,
               ]}
             >
               <AppText variant={selected ? "label" : "body"}>{option.label}</AppText>
-            </Pressable>
+            </FocusPressable>
           );
         })}
       </View>
