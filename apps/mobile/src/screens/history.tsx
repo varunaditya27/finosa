@@ -1,4 +1,5 @@
-import { useLocalSearchParams, useRouter } from "expo-router";
+import { useFocusEffect, useLocalSearchParams, useNavigation, useRouter } from "expo-router";
+import { useCallback } from "react";
 import { StyleSheet, View } from "react-native";
 import { AppText } from "@/components/app-text";
 import { Button } from "@/components/button";
@@ -17,6 +18,8 @@ const CATEGORY_OPTIONS = [...CATEGORIES.map((c) => ({ value: c.id, label: c.name
 
 export function History() {
   const router = useRouter();
+  // Bound to this screen, so clearing still targets History after another tab has become the focused route.
+  const navigation = useNavigation<{ setParams: (params: Record<string, undefined>) => void }>();
   const { state } = useLedger();
   const { month, category } = useLocalSearchParams<{ month?: string; category?: string }>();
   const monthFilter = month && /^\d{4}-\d{2}$/.test(month) && isValidDate(`${month}-01`) ? month : undefined;
@@ -30,6 +33,13 @@ export function History() {
   const shownExpense = matches.filter((t) => t.kind === "expense").reduce((s, t) => s + t.amount, 0n);
   const filtered = Boolean(monthFilter || category);
   const clear = () => router.setParams({ month: undefined, category: undefined });
+  // Filters set from the Overview belong to that visit. Leave the tab and they reset, so it never reopens half-filtered.
+  useFocusEffect(
+    useCallback(() => () => navigation.setParams({ month: undefined, category: undefined }), [navigation]),
+  );
+  const activeFilters = [monthFilter && formatMonth(monthFilter), category && categoryName(category === UNCATEGORIZED ? null : category)]
+    .filter(Boolean)
+    .join(" · ");
 
   return (
     <Screen title="History" action={{ label: "Add", onPress: () => router.push("/add-transaction") }}>
@@ -49,10 +59,12 @@ export function History() {
             clearable
             onChange={(value) => router.setParams({ category: value ?? undefined })}
           />
-          {monthFilter ? (
-            <View style={styles.monthRow}>
-              <AppText variant="label">Month: {formatMonth(monthFilter)}</AppText>
-              <Button title="Show all months" variant="quiet" onPress={() => router.setParams({ month: undefined })} />
+          {filtered ? (
+            <View style={styles.filterRow}>
+              <AppText variant="label" style={styles.filterText}>
+                Showing: {activeFilters}
+              </AppText>
+              <Button title="Clear filters" variant="quiet" onPress={clear} />
             </View>
           ) : null}
 
@@ -63,7 +75,7 @@ export function History() {
 
           {rows.length === 0 ? (
             <EmptyState title="Nothing matches these filters" body="Try another category, or clear the filters to see everything.">
-              {filtered ? <Button title="Clear filters" onPress={clear} /> : null}
+              <Button title="Clear filters" onPress={clear} />
             </EmptyState>
           ) : (
             // shortcut: ScrollView draws every row, switch this list to FlatList once it holds real data.
@@ -90,5 +102,6 @@ export function History() {
 }
 
 const styles = StyleSheet.create({
-  monthRow: { flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: spacing.sm },
+  filterRow: { flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: spacing.sm },
+  filterText: { flex: 1 },
 });
