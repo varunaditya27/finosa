@@ -18,7 +18,7 @@ From this folder:
 2. `npx expo start`
 3. On an Android phone, install Expo Go, then scan the QR code shown in the terminal. Press `w` in the terminal to open the web preview instead.
 
-The project uses Expo SDK 57. Expo's docs say to use an SDK 57 project when testing in Expo Go on a physical device, because the Expo Go app on the phone stores must match the project's SDK version.
+The phone and the computer must be on the same Wi-Fi network, with mobile data off on the phone. Expo Go also has to match the project's Expo SDK version exactly. This project uses SDK 58, the version the Play Store's Expo Go currently supports. If Expo Go reports that the project is incompatible, the two versions differ: update Expo Go, or install the build for this SDK from [expo.dev/go](https://expo.dev/go).
 
 ## Check it
 
