@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+<rect width="1280" height="640" fill="#F8F6EF"/>
+<rect x="28" y="28" width="1224" height="584" rx="28" fill="#FFFFFF" stroke="#DBE6E1" stroke-width="2"/>
+<path d="M818 52 Q1031 162 1224 45 L1224 584 Q1001 508 784 576Z" fill="#F0F6F2"/>
+<g opacity=".60"><circle cx="1095" cy="293" r="185" fill="none" stroke="#1C827A" stroke-opacity=".15" stroke-width="1.4"/><circle cx="1095" cy="293" r="134" fill="none" stroke="#1C827A" stroke-opacity=".18" stroke-width="1.4"/><circle cx="1095" cy="293" r="80" fill="none" stroke="#1C827A" stroke-opacity=".14" stroke-width="1.4"/></g>
+<g transform="translate(97 84) scale(1.18)"><defs>
+<linearGradient id="logoGradient" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#20A497"/><stop offset="1" stop-color="#096056"/></linearGradient>
+</defs>
+<path d="M16 30 C20 12 44 8 112 8 C110 24 105 35 92 42 C75 51 51 47 18 57 C17 45 16 38 16 30 Z" fill="url(#logoGradient)"/>
+<path d="M18 61 C29 49 50 48 96 42 C93 57 84 68 68 73 C51 78 32 77 17 84 C16 75 16 68 18 61 Z" fill="#27A497"/>
+<path d="M18 89 C31 82 47 80 66 76 C62 93 49 104 17 112 C16 103 16 96 18 89 Z" fill="#11675E"/>
+<circle cx="93" cy="97" r="10" fill="#E3B84E"/></g>
+<text x="274" y="202" font-family="Inter Display,Inter,Arial,sans-serif" font-weight="700" font-size="104" letter-spacing="-6" fill="#143C3A">FinOSA</text>
+<text x="280" y="247" font-family="Inter,Arial,sans-serif" font-size="17" letter-spacing="5" font-weight="700" fill="#1C827A">FINANCIAL OPERATING SYSTEM AGENT</text>
+<path d="M97 302 H703" stroke="#DBE6E1" stroke-width="2"/>
+<text x="98" y="385" font-family="Inter Display,Inter,sans-serif" font-size="35" font-weight="600" letter-spacing="-1.2" fill="#143C3A">Know where you stand.</text>
+<text x="98" y="432" font-family="Inter Display,Inter,sans-serif" font-size="35" font-weight="600" letter-spacing="-1.2" fill="#143C3A">See what comes next.</text>
+<rect x="98" y="498" width="204" height="48" rx="24" fill="#DDEFE8"/>
+<text x="200" y="529" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="600" fill="#143C3A">Understand</text>
+<circle cx="332" cy="522" r="4" fill="#E3B84E"/>
+<text x="352" y="529" font-family="Inter,Arial,sans-serif" font-size="17" fill="#143C3A">Plan</text>
+<circle cx="433" cy="522" r="4" fill="#E3B84E"/>
+<text x="452" y="529" font-family="Inter,Arial,sans-serif" font-size="17" fill="#143C3A">Stay ahead</text>
+<!-- Financial streams resolving into a single anchored dot -->
+<path d="M841 130 C907 172 969 162 1019 226 C1063 286 1067 290 1103 298" fill="none" stroke="#29A79C" stroke-width="15" stroke-linecap="round" opacity=".40"/>
+<path d="M835 225 C924 230 965 248 1012 279 C1066 315 1078 299 1103 298" fill="none" stroke="#1C827A" stroke-width="13" stroke-linecap="round" opacity=".70"/>
+<path d="M831 356 C906 336 952 337 1013 310 C1051 293 1083 300 1103 298" fill="none" stroke="#143C3A" stroke-width="11" stroke-linecap="round" opacity=".78"/>
+<circle cx="1103" cy="298" r="24" fill="#E3B84E" stroke="white" stroke-width="9"/>
+<path d="M1103 322 L1103 395" stroke="#1C827A" stroke-width="2" stroke-dasharray="4 8"/>
+<rect x="862" y="432" width="318" height="80" rx="20" fill="#FFFFFF" stroke="#DBE6E1"/>
+<circle cx="904" cy="472" r="16" fill="#DDEFE8"/>
+<path d="M894 473 L902 480 L915 462" stroke="#1C827A" stroke-width="3.3" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="934" y="467" font-family="Inter,Arial,sans-serif" font-size="19" font-weight="650" fill="#143C3A">Financial clarity</text>
+<text x="934" y="489" font-family="Inter,Arial,sans-serif" font-size="15" fill="#546C68">One coherent picture</text>
+</svg>

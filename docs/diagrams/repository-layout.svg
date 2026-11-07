@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 484" width="1000" height="484" role="img" aria-labelledby="repository-layout-title repository-layout-desc">
+<title id="repository-layout-title">Planned repository layout</title>
+<desc id="repository-layout-desc">Tree diagram of the planned repository: apps for the API and mobile client, packages for shared code, docs, and infra, with the API split into business modules and an infrastructure folder.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#546C68"/></marker><marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#8A5413"/></marker><marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#16675B"/></marker></defs>
+<rect width="100%" height="100%" fill="#F8F6EF"/>
+<path d="M643,80 V110" fill="none" stroke="#546C68" stroke-width="1"/>
+<path d="M387,140 V118 Q387,110 395,110 H892 Q900,110 900,118 V140" fill="none" stroke="#546C68" stroke-width="1"/>
+<path d="M600,110 V140" fill="none" stroke="#546C68" stroke-width="1"/>
+<path d="M750,110 V140" fill="none" stroke="#546C68" stroke-width="1"/>
+<path d="M387,188 V218" fill="none" stroke="#546C68" stroke-width="1"/>
+<path d="M235,248 V226 Q235,218 243,218 H532 Q540,218 540,226 V248" fill="none" stroke="#546C68" stroke-width="1"/>
+<path d="M235,296 V326" fill="none" stroke="#546C68" stroke-width="1"/>
+<path d="M130,356 V334 Q130,326 138,326 H332 Q340,326 340,334 V356" fill="none" stroke="#546C68" stroke-width="1"/>
+<rect x="563" y="32" width="160" height="48" rx="6" fill="#F8F6EF"/>
+<rect x="563" y="32" width="160" height="48" rx="6" fill="#FFFFFF" stroke="#546C68" stroke-width="1"/>
+<text x="643" y="54" fill="#143C3A" font-size="12" font-weight="600" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" text-anchor="middle" >finosa/</text>
+<text x="643" y="70" fill="#546C68" font-size="9" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" >repository root</text>
+<rect x="317" y="140" width="140" height="48" rx="6" fill="#F8F6EF"/>
+<rect x="317" y="140" width="140" height="48" rx="6" fill="#FFFFFF" stroke="#546C68" stroke-width="1"/>
+<text x="387" y="162" fill="#143C3A" font-size="12" font-weight="600" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" text-anchor="middle" >apps/</text>
+<text x="387" y="178" fill="#546C68" font-size="9" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" >deployables</text>
+<rect x="530" y="140" width="140" height="48" rx="6" fill="#F8F6EF"/>
+<rect x="530" y="140" width="140" height="48" rx="6" fill="#FFFFFF" stroke="#546C68" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="600" y="162" fill="#143C3A" font-size="12" font-weight="600" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" text-anchor="middle" >packages/</text>
+<text x="600" y="178" fill="#546C68" font-size="9" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" >shared, if needed</text>
+<rect x="680" y="140" width="140" height="48" rx="6" fill="#F8F6EF"/>
+<rect x="680" y="140" width="140" height="48" rx="6" fill="#FFFFFF" stroke="#546C68" stroke-width="1"/>
+<text x="750" y="162" fill="#143C3A" font-size="12" font-weight="600" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" text-anchor="middle" >docs/</text>
+<text x="750" y="178" fill="#546C68" font-size="9" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" >design docs</text>
+<rect x="830" y="140" width="140" height="48" rx="6" fill="#F8F6EF"/>
+<rect x="830" y="140" width="140" height="48" rx="6" fill="#FFFFFF" stroke="#546C68" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="900" y="162" fill="#143C3A" font-size="12" font-weight="600" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" text-anchor="middle" >infra/</text>
+<text x="900" y="178" fill="#546C68" font-size="9" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" >deploy files, later</text>
+<rect x="165" y="248" width="140" height="48" rx="6" fill="#F8F6EF"/>
+<rect x="165" y="248" width="140" height="48" rx="6" fill="#FFFFFF" stroke="#546C68" stroke-width="1"/>
+<text x="235" y="270" fill="#143C3A" font-size="12" font-weight="600" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" text-anchor="middle" >api/</text>
+<text x="235" y="286" fill="#546C68" font-size="9" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" >node.js service</text>
+<rect x="470" y="248" width="140" height="48" rx="6" fill="#F8F6EF"/>
+<rect x="470" y="248" width="140" height="48" rx="6" fill="#FFFFFF" stroke="#546C68" stroke-width="1"/>
+<text x="540" y="270" fill="#143C3A" font-size="12" font-weight="600" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" text-anchor="middle" >mobile/</text>
+<text x="540" y="286" fill="#546C68" font-size="9" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" >react native app</text>
+<rect x="40" y="356" width="180" height="60" rx="6" fill="#F8F6EF"/>
+<rect x="40" y="356" width="180" height="60" rx="6" fill="rgba(227,184,78,0.20)" stroke="#8A5413" stroke-width="1"/>
+<text x="130" y="378" fill="#143C3A" font-size="12" font-weight="600" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" text-anchor="middle" >src/modules/</text>
+<text x="130" y="394" fill="#546C68" font-size="9" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" >accounts, transactions,</text>
+<text x="130" y="406" fill="#546C68" font-size="9" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" >imports, reports</text>
+<rect x="250" y="356" width="180" height="60" rx="6" fill="#F8F6EF"/>
+<rect x="250" y="356" width="180" height="60" rx="6" fill="#FFFFFF" stroke="#546C68" stroke-width="1"/>
+<text x="340" y="378" fill="#143C3A" font-size="12" font-weight="600" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" text-anchor="middle" >src/infrastructure/</text>
+<text x="340" y="394" fill="#546C68" font-size="9" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" >config, database,</text>
+<text x="340" y="406" fill="#546C68" font-size="9" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" >logging, HTTP</text>
+<line x1="30" y1="440" x2="970" y2="440" stroke="rgba(20,60,58,0.12)" stroke-width="0.8"/>
+<rect x="356" y="448" width="14" height="10" rx="2" fill="rgba(227,184,78,0.20)" stroke="#8A5413" stroke-width="1"/>
+<text x="378" y="456" fill="#546C68" font-size="8" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="start" letter-spacing="0.06em">BUSINESS RULES LIVE HERE</text>
+<rect x="534" y="448" width="14" height="10" rx="2" fill="#FFFFFF" stroke="#546C68" stroke-width="1" stroke-dasharray="3,2"/>
+<text x="556" y="456" fill="#546C68" font-size="8" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="start" letter-spacing="0.06em">ADDED WHEN NEEDED</text>
+</svg>

@@ -1,0 +1,19 @@
+/* FinOSA — Light-only brand tokens. Never switch to a dark background. */
+:root {
+  --finosa-ink: #143C3A;
+  --finosa-jade: #1C827A;
+  --finosa-jade-bright: #29A79C;
+  --finosa-mint: #DDEFE8;
+  --finosa-porcelain: #F8F6EF;
+  --finosa-citrus: #E3B84E;
+  --finosa-muted: #546C68;
+  --finosa-hairline: #DBE6E1;
+  --finosa-surface: #FFFFFF;
+  --finosa-positive: #16675B;
+  --finosa-attention: #B06B1E;
+  --finosa-negative: #A6443B;
+  --finosa-font-brand: 'Inter Display', Inter, system-ui, sans-serif;
+  --finosa-font-ui: Inter, system-ui, sans-serif;
+  --finosa-radius-card: 16px;
+  --finosa-radius-control: 10px;
+}

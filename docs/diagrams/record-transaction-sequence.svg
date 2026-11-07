@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 660" width="1000" height="660" role="img" aria-labelledby="sequence-title sequence-desc">
+<title id="sequence-title">Recording a transaction</title>
+<desc id="sequence-desc">Sequence diagram of the mobile app recording a transaction through the API, domain logic and PostgreSQL, with later background delivery of the outbox record.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#546C68"/></marker><marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#8A5413"/></marker><marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#16675B"/></marker></defs>
+<rect width="100%" height="100%" fill="#F8F6EF"/>
+<line x1="110" y1="88" x2="110" y2="596" stroke="rgba(20,60,58,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="290" y1="88" x2="290" y2="596" stroke="rgba(20,60,58,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="470" y1="88" x2="470" y2="596" stroke="rgba(20,60,58,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="650" y1="88" x2="650" y2="596" stroke="rgba(20,60,58,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="830" y1="88" x2="830" y2="596" stroke="rgba(20,60,58,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+<rect x="626" y="412" width="228" height="160" rx="4" fill="#143C3A" fill-opacity="0.03" stroke="rgba(20,60,58,0.22)" stroke-width="1"/>
+<rect x="626" y="412" width="40" height="16" rx="2" fill="#F8F6EF" stroke="rgba(20,60,58,0.22)" stroke-width="1"/>
+<text x="646" y="424" fill="#546C68" font-size="8" font-weight="500" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" letter-spacing="0.12em">OPT</text>
+<text x="662" y="448" fill="#546C68" font-size="8" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="start" letter-spacing="0.04em">[later: async processing]</text>
+<line x1="110" y1="148" x2="286" y2="148" stroke="#16675B" stroke-width="1.2" marker-end="url(#arrow-link)"/>
+<line x1="294" y1="196" x2="466" y2="196" stroke="#546C68" stroke-width="1.2" marker-end="url(#arrow)"/>
+<line x1="474" y1="244" x2="646" y2="244" stroke="#546C68" stroke-width="1.2" marker-end="url(#arrow)"/>
+<line x1="646" y1="292" x2="474" y2="292" stroke="#546C68" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+<line x1="466" y1="340" x2="294" y2="340" stroke="#546C68" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+<line x1="286" y1="388" x2="110" y2="388" stroke="#8A5413" stroke-width="1.2" marker-end="url(#arrow-accent)"/>
+<line x1="830" y1="484" x2="654" y2="484" stroke="#546C68" stroke-width="1.2" marker-end="url(#arrow)"/>
+<path d="M834,520 H858 Q866,520 866,528 V536 Q866,544 858,544 H838" fill="none" stroke="#546C68" stroke-width="1.2" marker-end="url(#arrow)"/>
+<rect x="168" y="128" width="61" height="12" rx="2" fill="#F8F6EF"/>
+<text x="198" y="137" fill="#4E6864" font-size="8" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" letter-spacing="0.06em">POST + KEY</text>
+<rect x="357" y="176" width="46" height="12" rx="2" fill="#F8F6EF"/>
+<text x="380" y="185" fill="#4E6864" font-size="8" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" letter-spacing="0.06em">COMMAND</text>
+<rect x="525" y="224" width="71" height="12" rx="2" fill="#F8F6EF"/>
+<text x="560" y="233" fill="#4E6864" font-size="8" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" letter-spacing="0.06em">ATOMIC WRITE</text>
+<rect x="540" y="272" width="41" height="12" rx="2" fill="#F8F6EF"/>
+<text x="560" y="281" fill="#4E6864" font-size="8" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" letter-spacing="0.06em">COMMIT</text>
+<rect x="340" y="320" width="81" height="12" rx="2" fill="#F8F6EF"/>
+<text x="380" y="329" fill="#4E6864" font-size="8" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" letter-spacing="0.06em">TRANSACTION ID</text>
+<rect x="175" y="368" width="46" height="12" rx="2" fill="#F8F6EF"/>
+<text x="198" y="377" fill="#8A5413" font-size="8" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" letter-spacing="0.06em">SUCCESS</text>
+<rect x="707" y="464" width="71" height="12" rx="2" fill="#F8F6EF"/>
+<text x="742" y="473" fill="#4E6864" font-size="8" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" letter-spacing="0.06em">CLAIM OUTBOX</text>
+<text x="874" y="536" fill="#4E6864" font-size="8" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="start" letter-spacing="0.06em">HANDLER</text>
+<text x="874" y="548" fill="#4E6864" font-size="8" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="start" letter-spacing="0.06em">(IDEMPOTENT)</text>
+<rect x="286" y="140" width="8" height="256" fill="#FFFFFF" stroke="#546C68" stroke-width="0.8"/>
+<rect x="466" y="188" width="8" height="160" fill="#FFFFFF" stroke="#546C68" stroke-width="0.8"/>
+<rect x="646" y="236" width="8" height="64" fill="#FFFFFF" stroke="#546C68" stroke-width="0.8"/>
+<rect x="646" y="476" width="8" height="16" fill="#FFFFFF" stroke="#546C68" stroke-width="0.8"/>
+<rect x="44" y="40" width="132" height="48" rx="6" fill="#F8F6EF"/>
+<rect x="44" y="40" width="132" height="48" rx="6" fill="#FFFFFF" stroke="#546C68" stroke-width="1"/>
+<text x="110" y="62" fill="#143C3A" font-size="12" font-weight="600" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" text-anchor="middle" >Mobile</text>
+<text x="110" y="78" fill="#546C68" font-size="9" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" >react native</text>
+<rect x="224" y="40" width="132" height="48" rx="6" fill="#F8F6EF"/>
+<rect x="224" y="40" width="132" height="48" rx="6" fill="#FFFFFF" stroke="#546C68" stroke-width="1"/>
+<text x="290" y="62" fill="#143C3A" font-size="12" font-weight="600" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" text-anchor="middle" >API</text>
+<text x="290" y="78" fill="#546C68" font-size="9" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" >node.js</text>
+<rect x="404" y="40" width="132" height="48" rx="6" fill="#F8F6EF"/>
+<rect x="404" y="40" width="132" height="48" rx="6" fill="#FFFFFF" stroke="#546C68" stroke-width="1"/>
+<text x="470" y="62" fill="#143C3A" font-size="12" font-weight="600" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" text-anchor="middle" >Domain</text>
+<text x="470" y="78" fill="#546C68" font-size="9" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" >rules</text>
+<rect x="584" y="40" width="132" height="48" rx="6" fill="#F8F6EF"/>
+<rect x="584" y="40" width="132" height="48" rx="6" fill="rgba(227,184,78,0.20)" stroke="#8A5413" stroke-width="1"/>
+<text x="650" y="62" fill="#143C3A" font-size="12" font-weight="600" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" text-anchor="middle" >PostgreSQL</text>
+<text x="650" y="78" fill="#546C68" font-size="9" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" >source of truth</text>
+<rect x="764" y="40" width="132" height="48" rx="6" fill="#F8F6EF"/>
+<rect x="764" y="40" width="132" height="48" rx="6" fill="#FFFFFF" stroke="#546C68" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="830" y="62" fill="#143C3A" font-size="12" font-weight="600" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" text-anchor="middle" >Worker</text>
+<text x="830" y="78" fill="#546C68" font-size="9" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="middle" >later</text>
+<line x1="30" y1="616" x2="970" y2="616" stroke="rgba(20,60,58,0.12)" stroke-width="0.8"/>
+<line x1="283" y1="629" x2="311" y2="629" stroke="#16675B" stroke-width="1.2" marker-end="url(#arrow-link)"/>
+<text x="321" y="632" fill="#546C68" font-size="8" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="start" letter-spacing="0.06em">HTTPS CALL</text>
+<line x1="405" y1="629" x2="433" y2="629" stroke="#546C68" stroke-width="1.2" marker-end="url(#arrow)"/>
+<text x="443" y="632" fill="#546C68" font-size="8" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="start" letter-spacing="0.06em">INTERNAL CALL</text>
+<line x1="542" y1="629" x2="570" y2="629" stroke="#546C68" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+<text x="580" y="632" fill="#546C68" font-size="8" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="start" letter-spacing="0.06em">RETURN</text>
+<line x1="643" y1="629" x2="671" y2="629" stroke="#8A5413" stroke-width="1.2" marker-end="url(#arrow-accent)"/>
+<text x="681" y="632" fill="#546C68" font-size="8" font-weight="400" font-family="ui-monospace, Menlo, 'DejaVu Sans Mono', Consolas, monospace" text-anchor="start" letter-spacing="0.06em">SUCCESS</text>
+</svg>
