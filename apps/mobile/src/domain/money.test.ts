@@ -10,6 +10,15 @@ describe("parseRupees", () => {
     expect(parseRupees("₹1,24,500.5")).toEqual({ ok: true, paise: 12450050n });
   });
 
+  it("accepts Indian and Western comma grouping", () => {
+    expect(parseRupees("1,24,500")).toEqual({ ok: true, paise: 12450000n });
+    expect(parseRupees("1,234,567")).toEqual({ ok: true, paise: 123456700n });
+  });
+
+  it.each(["12,50", "1,2,3", "1,234,56", ",500", "1,,000"])("rejects misplaced commas in %s instead of guessing", (input) => {
+    expect(parseRupees(input)).toEqual({ ok: false, error: "Check the commas. Write 12.50, or 1,24,500.00." });
+  });
+
   it("asks for an amount when empty", () => {
     expect(parseRupees("  ")).toEqual({ ok: false, error: "Enter an amount." });
   });

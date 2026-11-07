@@ -1,4 +1,4 @@
-import { monthOf } from "./dates";
+import { formatDay, isValidDate, monthOf } from "./dates";
 import type { Account, Transaction } from "./types";
 
 const signed = (tx: Transaction) => (tx.kind === "income" ? tx.amount : -tx.amount);
@@ -31,4 +31,12 @@ export function categoryTotals(transactions: Transaction[], month: string) {
   return [...totals]
     .map(([categoryId, total]) => ({ categoryId, total }))
     .sort((a, b) => (a.total === b.total ? 0 : a.total < b.total ? 1 : -1));
+}
+
+/** Why a transaction or account date cannot be used, or null if it is fine. */
+export function dateProblem(date: string, today: string, notBefore?: string): string | null {
+  if (!isValidDate(date)) return "Enter a real date as YYYY-MM-DD, for example 2026-11-07.";
+  if (date > today) return "Dates after today are not supported yet.";
+  if (notBefore && date < notBefore) return `This account is counted from ${formatDay(notBefore)}. Pick that day or later.`;
+  return null;
 }

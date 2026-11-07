@@ -3,13 +3,20 @@ import type { TxKind } from "./types";
 export type ParseResult = { ok: true; paise: bigint } | { ok: false; error: string };
 
 const MAX_RUPEE_DIGITS = 11;
+const GROUPED = /^(\d{1,3}(,\d{3})+|\d{1,2}(,\d{2})+,\d{3})$/;
 
 export function parseRupees(input: string, options: { allowZero?: boolean } = {}): ParseResult {
-  const text = input.trim().replace(/^₹/, "").replace(/,/g, "").trim();
-  if (text === "") return { ok: false, error: "Enter an amount." };
-  if (text.startsWith("-") || text.startsWith("−")) {
+  const typed = input.trim().replace(/^₹/, "").trim();
+  if (typed === "") return { ok: false, error: "Enter an amount." };
+  if (typed.startsWith("-") || typed.startsWith("−")) {
     return { ok: false, error: "Enter the amount without a minus sign. Choose Expense or Income instead." };
   }
+  // Commas only count as digit groups (1,234,567 or 1,24,500). Anything else, like 12,50, could be a decimal comma, so ask.
+  const [wholePart, ...afterPoint] = typed.split(".");
+  if (typed.includes(",") && (afterPoint.join("").includes(",") || !GROUPED.test(wholePart))) {
+    return { ok: false, error: "Check the commas. Write 12.50, or 1,24,500.00." };
+  }
+  const text = typed.replace(/,/g, "");
   const match = /^(\d*)(?:\.(\d*))?$/.exec(text);
   const whole = match?.[1] ?? "";
   const fraction = match?.[2] ?? "";

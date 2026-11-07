@@ -1,4 +1,4 @@
-import { accountBalance, categoryTotals, monthTotals } from "./ledger";
+import { accountBalance, categoryTotals, dateProblem, monthTotals } from "./ledger";
 import type { Account, Transaction } from "./types";
 
 const account: Account = { id: "a1", name: "Main", type: "bank", openingBalance: 1000000n, openingDate: "2026-11-01" };
@@ -68,5 +68,28 @@ describe("categoryTotals", () => {
   it("adds up to the month's expense total", () => {
     const sum = categoryTotals(txs, "2026-11").reduce((acc, row) => acc + row.total, 0n);
     expect(sum).toBe(monthTotals(txs, "2026-11").expense);
+  });
+});
+
+describe("dateProblem", () => {
+  const today = "2026-11-07";
+
+  it("accepts today, a past day and the opening date itself", () => {
+    expect(dateProblem("2026-11-07", today)).toBeNull();
+    expect(dateProblem("2026-11-01", today, "2026-11-01")).toBeNull();
+  });
+
+  it("rejects text that is not a real calendar date", () => {
+    expect(dateProblem("2026-02-30", today)).toBe("Enter a real date as YYYY-MM-DD, for example 2026-11-07.");
+  });
+
+  it("rejects a day after today, because only posted transactions exist for now", () => {
+    expect(dateProblem("2026-11-08", today)).toBe("Dates after today are not supported yet.");
+  });
+
+  it("rejects a day before the account's counted-from date, because its balance would silently ignore it", () => {
+    expect(dateProblem("2026-10-31", today, "2026-11-01")).toBe(
+      "This account is counted from 1 Nov 2026. Pick that day or later.",
+    );
   });
 });
