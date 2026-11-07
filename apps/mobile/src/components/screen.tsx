@@ -1,4 +1,5 @@
-import type { ReactNode } from "react";
+import { useFocusEffect } from "expo-router";
+import { useCallback, type ReactNode } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AppText } from "@/components/app-text";
@@ -18,7 +19,12 @@ type Props = {
 
 export function Screen({ title, children, action, onClose }: Props) {
   const { state, dispatch } = useLedger();
-  return () => dispatch({ type: "dismissNotice" });
+  // A saved-message belongs to the screen it appeared on, so leaving a tab clears it. Sheets skip this
+  // because they close right after saving, and the message must survive until the tab behind is shown.
+  useFocusEffect(
+    useCallback(() => {
+      if (onClose) return;
+      return () => dispatch({ type: "dismissNotice" });
     }, [onClose, dispatch]),
   );
   return (
