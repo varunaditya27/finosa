@@ -36,5 +36,6 @@ export function formatRupees(paise: bigint): string {
 }
 
 export function formatSigned(kind: TxKind, paise: bigint): string {
+  if (paise === 0n) return formatRupees(0n);
   return `${kind === "income" ? "+" : "−"}${formatRupees(paise)}`;
 }

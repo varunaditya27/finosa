@@ -10,7 +10,7 @@ import { Screen } from "@/components/screen";
 import { categoryName, UNCATEGORIZED } from "@/domain/categories";
 import { addMonths, formatMonth, monthOf, todayString } from "@/domain/dates";
 import { categoryTotals, monthTotals } from "@/domain/ledger";
-import { formatRupees } from "@/domain/money";
+import { formatRupees, formatSigned } from "@/domain/money";
 import { useLedger } from "@/store/ledger-store";
 import { colors, radius, spacing } from "@/theme";
 
@@ -58,7 +58,7 @@ export function Overview() {
                       Income
                     </AppText>
                     <AppText variant="bodyStrong" color={colors.positive} numeric selectable>
-                      +{formatRupees(totals.income)}
+                      {formatSigned("income", totals.income)}
                     </AppText>
                   </View>
                   <View>
@@ -66,7 +66,7 @@ export function Overview() {
                       Expenses
                     </AppText>
                     <AppText variant="bodyStrong" numeric selectable>
-                      −{formatRupees(totals.expense)}
+                      {formatSigned("expense", totals.expense)}
                     </AppText>
                   </View>
                 </View>

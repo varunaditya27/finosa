@@ -9,7 +9,7 @@ import { ListRow } from "@/components/list-row";
 import { Screen } from "@/components/screen";
 import { CATEGORIES, categoryName, UNCATEGORIZED } from "@/domain/categories";
 import { formatDay, formatMonth, isValidDate, monthOf } from "@/domain/dates";
-import { formatRupees, formatSigned } from "@/domain/money";
+import { formatSigned } from "@/domain/money";
 import { useLedger } from "@/store/ledger-store";
 import { colors, spacing } from "@/theme";
 
@@ -57,8 +57,8 @@ export function History() {
           ) : null}
 
           <AppText variant="caption" color={colors.muted} selectable>
-            {rows.length} {rows.length === 1 ? "transaction" : "transactions"} · income +{formatRupees(shownIncome)} · expenses −
-            {formatRupees(shownExpense)}
+            {rows.length} {rows.length === 1 ? "transaction" : "transactions"} · income {formatSigned("income", shownIncome)} ·
+            expenses {formatSigned("expense", shownExpense)}
           </AppText>
 
           {rows.length === 0 ? (

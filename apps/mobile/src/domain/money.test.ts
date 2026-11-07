@@ -62,4 +62,9 @@ describe("formatSigned", () => {
     expect(formatSigned("income", 12450000n)).toBe("+₹1,24,500.00");
     expect(formatSigned("expense", 111111n)).toBe("−₹1,111.11");
   });
+
+  it("shows no sign for zero", () => {
+    expect(formatSigned("expense", 0n)).toBe("₹0.00");
+    expect(formatSigned("income", 0n)).toBe("₹0.00");
+  });
 });
