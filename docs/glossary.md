@@ -32,6 +32,8 @@ Plain-language definitions of terms used across these docs. Money terms are defi
 | **Composition root** | The single place where an application's parts are created and connected to each other. |
 | **ADR** | Architecture decision record: a short file describing one design decision and why it was made. Replaced decisions are kept and marked as superseded. |
 | **CSV** | A plain text table where values are separated by commas. |
+| **Typeface** | A named design of letters and digits, such as Petrona or Familjen Grotesk. In everyday speech, "font". |
+| **Tabular numerals** | Digits that all take the same width, so figures in a column line up (1,111.11 sits exactly above 8,888.88). Without them, a narrow "1" shifts the digits beside it. |
 
 ## Sources
 

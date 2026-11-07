@@ -34,9 +34,9 @@ The ivory-first visual system makes statements and insights readable and gives f
 
 ## Type
 
-Use **Inter Display** for the brand wordmark and large headings, **Inter** for UI/body/data. If these are not available in a runtime, use local/system sans fallbacks. Do not redistribute the actual font files in the brand kit.
+Use **Petrona** (a lively serif) for the brand wordmark, headings and the large balance figure. Use **Familjen Grotesk** (a quiet, slightly quirky sans) for UI text, labels, lists and amounts. Both are free under the SIL Open Font License 1.1, both include the rupee sign (₹), and both are loaded in the app from `@expo-google-fonts` packages. Weights in use: regular, medium, semibold and bold. If a font is not available in a runtime, fall back to a system serif for headings and a system sans for UI. Do not redistribute the actual font files in the brand kit.
 
-For numerical data, use tabular numerals, clear currency symbols and explicit periods. Never convey positive/negative states by color alone.
+For numerical data, use tabular numerals (every digit the same width, so amounts line up in a column), clear currency symbols and explicit periods. Familjen Grotesk's digits are equal width by default. Petrona's are not, so switch tabular numerals on wherever it sets a number. Never convey positive/negative states by color alone.
 
 ## Components
 

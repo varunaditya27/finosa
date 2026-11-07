@@ -115,6 +115,7 @@ Choose between tokens and server sessions in the login milestone, before any pub
 | Plain `node:http` + Zod | Chosen | Visible request lifecycle; runtime validation at the boundary |
 | Prisma ORM, pinned to 7.x | Chosen | Typed data access and managed migrations. The version 8 release candidate is not used until it is stable. Database rules such as `CHECK (amount_minor > 0)` are added by hand-editing the generated migration SQL |
 | npm workspaces | Chosen | Ships with Node.js; no extra tool to learn |
+| Fonts: Petrona and Familjen Grotesk, via `@expo-google-fonts` | Chosen | Distinctive pair that both include the rupee sign and open-licensed. Familjen Grotesk's digits align by default. Petrona needs tabular numerals switched on for any number. Details in the [brand guidelines](../assets/brand/BRAND_GUIDELINES.md) |
 | Broker | Deferred (M8) | Choose when consumer delivery needs are shown |
 | Kubernetes | Deferred | Learn once deployments and worker scaling exist |
 

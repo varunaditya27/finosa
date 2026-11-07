@@ -12,8 +12,8 @@
   --finosa-positive: #16675B;
   --finosa-attention: #B06B1E;
   --finosa-negative: #A6443B;
-  --finosa-font-brand: 'Inter Display', Inter, system-ui, sans-serif;
-  --finosa-font-ui: Inter, system-ui, sans-serif;
+  --finosa-font-brand: Petrona, Georgia, serif;
+  --finosa-font-ui: 'Familjen Grotesk', system-ui, sans-serif;
   --finosa-radius-card: 16px;
   --finosa-radius-control: 10px;
 }
