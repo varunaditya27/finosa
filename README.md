@@ -37,7 +37,7 @@ One mobile app, one backend and one database to begin with. Built with TypeScrip
 
 ## Status
 
-Design stage: there is no code yet, and nothing here is financial advice. The first version is planned as a local foundation using made-up data. Do not use real financial data with this project.
+Design stage: the only code so far is a mock mobile app with made-up data in [apps/mobile](apps/mobile). There is no backend yet, and nothing here is financial advice. Do not use real financial data with this project.
 
 ## Documentation
 
@@ -52,7 +52,7 @@ New to a term? See the [glossary](docs/glossary.md). Logos, colors and brand gui
 
 ## Contributing
 
-There is no code to contribute to yet. Questions and feedback on the design are welcome as GitHub issues. Please never post real financial data, account numbers or statements.
+There is no backend to contribute to yet. Questions and feedback on the design are welcome as GitHub issues. Please never post real financial data, account numbers or statements.
 
 ## License
 
