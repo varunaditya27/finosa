@@ -25,3 +25,10 @@ export type Transaction = {
   description: string;
   categoryId: string | null;
 };
+
+export const ACCOUNT_TYPE_LABEL: Record<AccountType, string> = {
+  bank: "Bank account",
+  wallet: "Wallet",
+  cash: "Cash",
+  other: "Other",
+};

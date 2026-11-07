@@ -8,9 +8,8 @@ import { Screen } from "@/components/screen";
 import { TextField } from "@/components/text-field";
 import { isValidDate, todayString } from "@/domain/dates";
 import { parseRupees } from "@/domain/money";
-import type { AccountType } from "@/domain/types";
+import { ACCOUNT_TYPE_LABEL, type AccountType } from "@/domain/types";
 import { useLedger } from "@/store/ledger-store";
-import { ACCOUNT_TYPE_LABEL } from "@/screens/accounts";
 import { colors, spacing } from "@/theme";
 
 const TYPE_OPTIONS = (Object.keys(ACCOUNT_TYPE_LABEL) as AccountType[]).map((value) => ({ value, label: ACCOUNT_TYPE_LABEL[value] }));

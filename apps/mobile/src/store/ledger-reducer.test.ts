@@ -7,7 +7,6 @@ describe("ledgerReducer", () => {
   it("starts empty", () => {
     expect(initialState.accounts).toEqual([]);
     expect(initialState.transactions).toEqual([]);
-    expect(initialState.isSample).toBe(false);
   });
 
   it("adds an account with a fresh id and a notice", () => {
@@ -33,17 +32,20 @@ describe("ledgerReducer", () => {
     expect(new Set(state.transactions.map((t) => t.id)).size).toBe(2);
   });
 
-  it("loads sample data into an empty ledger and marks it as sample", () => {
+  it("loads sample data into an empty ledger", () => {
     const state = ledgerReducer(initialState, { type: "loadSample", today: "2026-11-07" });
     expect(state.accounts.length).toBeGreaterThan(0);
     expect(state.transactions.length).toBeGreaterThan(0);
-    expect(state.isSample).toBe(true);
   });
 
   it("never overwrites data the user already entered", () => {
     const withAccount = ledgerReducer(initialState, { type: "addAccount", account });
     const state = ledgerReducer(withAccount, { type: "loadSample", today: "2026-11-07" });
     expect(state).toBe(withAccount);
+  });
+
+  it("returns the same state when there is no notice to dismiss", () => {
+    expect(ledgerReducer(initialState, { type: "dismissNotice" })).toBe(initialState);
   });
 
   it("clears the notice when dismissed", () => {

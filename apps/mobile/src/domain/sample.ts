@@ -1,7 +1,5 @@
-import { addMonths, monthOf } from "./dates";
+import { addMonths, monthOf, pad } from "./dates";
 import type { Account, Transaction } from "./types";
-
-const pad = (n: number) => String(n).padStart(2, "0");
 
 /** Made-up accounts and transactions for this month and the one before. */
 export function makeSample(today: string): { accounts: Account[]; transactions: Transaction[] } {

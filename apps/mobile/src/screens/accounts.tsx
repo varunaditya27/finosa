@@ -8,16 +8,9 @@ import { Screen } from "@/components/screen";
 import { formatDay, todayString } from "@/domain/dates";
 import { accountBalance } from "@/domain/ledger";
 import { formatRupees } from "@/domain/money";
+import { ACCOUNT_TYPE_LABEL } from "@/domain/types";
 import { useLedger } from "@/store/ledger-store";
 import { colors } from "@/theme";
-import type { AccountType } from "@/domain/types";
-
-export const ACCOUNT_TYPE_LABEL: Record<AccountType, string> = {
-  bank: "Bank account",
-  wallet: "Wallet",
-  cash: "Cash",
-  other: "Other",
-};
 
 export function Accounts() {
   const router = useRouter();

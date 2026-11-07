@@ -6,7 +6,6 @@ export type LedgerState = {
   accounts: Account[];
   transactions: Transaction[];
   notice: string | null;
-  isSample: boolean;
   nextId: number;
 };
 
@@ -16,14 +15,14 @@ export type LedgerAction =
   | { type: "addTransaction"; transaction: Omit<Transaction, "id"> }
   | { type: "dismissNotice" };
 
-export const initialState: LedgerState = { accounts: [], transactions: [], notice: null, isSample: false, nextId: 1 };
+export const initialState: LedgerState = { accounts: [], transactions: [], notice: null, nextId: 1 };
 
 export function ledgerReducer(state: LedgerState, action: LedgerAction): LedgerState {
   switch (action.type) {
     case "loadSample": {
       // Sample data is only for an empty ledger, so it can never overwrite what the user entered.
       if (state.accounts.length > 0 || state.transactions.length > 0) return state;
-      return { ...state, ...makeSample(action.today), isSample: true, notice: null };
+      return { ...state, ...makeSample(action.today), notice: null };
     }
     case "addAccount": {
       const account = { ...action.account, id: `acc-${state.nextId}` };
@@ -46,6 +45,6 @@ export function ledgerReducer(state: LedgerState, action: LedgerAction): LedgerS
       };
     }
     case "dismissNotice":
-      return { ...state, notice: null };
+      return state.notice === null ? state : { ...state, notice: null };
   }
 }
