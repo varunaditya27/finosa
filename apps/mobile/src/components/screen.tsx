@@ -18,6 +18,9 @@ type Props = {
 
 export function Screen({ title, children, action, onClose }: Props) {
   const { state, dispatch } = useLedger();
+  return () => dispatch({ type: "dismissNotice" });
+    }, [onClose, dispatch]),
+  );
   return (
     <SafeAreaView style={styles.safe} edges={onClose ? ["top", "bottom"] : ["top"]}>
       <View style={styles.header}>
