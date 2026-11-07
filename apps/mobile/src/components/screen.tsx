@@ -1,4 +1,5 @@
 import { useFocusEffect } from "expo-router";
+import Head from "expo-router/head";
 import { useCallback, type ReactNode } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -29,6 +30,11 @@ export function Screen({ title, children, action, onClose }: Props) {
   );
   return (
     <SafeAreaView style={styles.safe} edges={onClose ? ["top", "bottom"] : ["top"]}>
+      {process.env.EXPO_OS === "web" ? (
+        <Head>
+          <title>{`${title} · FinOSA`}</title>
+        </Head>
+      ) : null}
       <View style={styles.header}>
         <AppText variant="title" role="heading">
           {title}
@@ -36,7 +42,7 @@ export function Screen({ title, children, action, onClose }: Props) {
         {action ? <Button variant="secondary" title={action.label} onPress={action.onPress} /> : null}
         {onClose ? <IconButton icon="close" label="Close" onPress={onClose} /> : null}
       </View>
-      <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
+      <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled" automaticallyAdjustKeyboardInsets>
         {state.notice && !onClose ? (
           <View style={styles.notice} aria-live="polite">
             <AppText style={styles.noticeText} selectable>
@@ -60,7 +66,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.md,
     paddingTop: spacing.sm,
   },
-  content: { padding: spacing.md, gap: spacing.md },
+  content: { padding: spacing.md, gap: spacing.lg },
   notice: {
     flexDirection: "row",
     alignItems: "center",
