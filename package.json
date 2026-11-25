@@ -1,0 +1,8 @@
+{
+  "name": "finosa",
+  "private": true,
+  "workspaces": ["apps/*"],
+  "engines": {
+    "node": ">=24"
+  }
+}
