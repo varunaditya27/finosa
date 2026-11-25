@@ -104,6 +104,7 @@ Then add event-based reactions, first in process for learning, then durable. Int
 - A rule-based categorization suggestion or recurring-transaction detector.
 - Human review and correction, with confidence and justification recorded.
 - Tests on synthetic labeled examples and a basic quality measure.
+- The Python ML service in `ml/`, called by the worker after `transaction.recorded.v1` (needs M6). Design in [AI and ML Design](07-ai-ml-design.md).
 
 **Learn:** separating probabilistic inference from deterministic financial computation, event-triggered processing, measuring quality.
 
@@ -183,7 +184,7 @@ Answer from first principles before moving on:
 - **AI:** blocked until v0.1 records and reports are correct.
 - **Microservices:** blocked until independent scaling or deployment is needed.
 - **Kafka and Kubernetes:** optional learning milestones after a reliable local worker.
-- **Real financial data:** blocked until authentication, privacy, retention and a basic threat model exist.
+- **Real financial data:** blocked until authentication, privacy, retention and a basic threat model exist. One exception: the owner's own bank statement, kept in a git-ignored private folder, used only on the owner's machine with a local database, no hosting and no outside AI service.
 - **Docs:** update them as decisions are made. Do not invent implementation detail to fill pages.
 
 ## 7. Next actions

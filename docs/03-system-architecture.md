@@ -24,6 +24,7 @@ Essential user-facing writes are synchronous. Heavier reactions become asynchron
 | API service | Node.js + TypeScript on plain `node:http`, with small supporting libraries such as Zod | Auth boundary, orchestration, validation, domain actions | Long-running AI or background jobs |
 | PostgreSQL | Local Docker database | Durable account and transaction state | Business decisions |
 | Worker (later) | Node.js + TypeScript | Async processing, event delivery | Primary request validation |
+| ML service (later) | Python with FastAPI, in `ml/`, managed by `uv` | Model inference and training scripts | Financial truth, ledger writes. Details in [AI and ML Design](07-ai-ml-design.md) |
 | Message broker (optional, later) | RabbitMQ or Kafka, to be evaluated | Durable transport and routing | Authoritative financial data |
 
 The API uses Node's built-in `node:http` module instead of an application framework, so routing, body parsing and the request lifecycle stay visible. Small libraries are fine; NestJS is not used. Zod (a validation library) checks incoming JSON at runtime, because TypeScript types disappear when the program runs.
@@ -34,7 +35,7 @@ The API uses Node's built-in `node:http` module instead of an application framew
   <img src="diagrams/repository-layout.svg" alt="Planned repository layout: apps, packages, docs and infra, with the API split into business modules and an infrastructure folder." width="100%">
 </p>
 
-Create a directory only when it holds real code. The API is organised by feature first: each module owns its own rules and exposes a narrow interface, so other modules do not reach into its tables. Modules planned for v0.1 are accounts, transactions, imports and reports. Auth, users, budgets and insights come later. `packages/financial-core` is created only if pure money logic must be shared between the API and the mobile app.
+Create a directory only when it holds real code. The API is organised by feature first: each module owns its own rules and exposes a narrow interface, so other modules do not reach into its tables. Modules planned for v0.1 are accounts, transactions, imports and reports. Auth, users, budgets and insights come later. The Python ML service lives in `ml/` at the repo root and is not part of the npm workspaces. `packages/financial-core` is created only if pure money logic must be shared between the API and the mobile app.
 
 ### Layers inside a module
 
@@ -113,6 +114,10 @@ Choose between tokens and server sessions in the login milestone, before any pub
 | NestJS | Not the default | Keep wiring and the request lifecycle visible |
 | PostgreSQL | Chosen | Transactions, constraints, migrations |
 | Plain `node:http` + Zod | Chosen | Visible request lifecycle; runtime validation at the boundary |
+| Node 26, falling back to 24 | Chosen | 26 is the long-term-support line since late October 2026 by the sources checked; fall back to 24 if Prisma 7, Vitest or the Expo tools fail on it |
+| `tsx` and Vitest, `tsc --noEmit` for types | Chosen | Fast TypeScript runs and a common test runner; the compiler does the type checking |
+| Python, FastAPI and `uv` for the ML service | Chosen | Best ML tools are in Python; `uv` pins exact versions in a lock file |
+| OpenAPI types from Python, checked with Zod in Node | Chosen | One source of truth for message shapes between the two services |
 | Prisma ORM, pinned to 7.x | Chosen | Typed data access and managed migrations. The version 8 release candidate is not used until it is stable. Database rules such as `CHECK (amount_minor > 0)` are added by hand-editing the generated migration SQL |
 | npm workspaces | Chosen | Ships with Node.js; no extra tool to learn |
 | Fonts: Petrona and Familjen Grotesk, via `@expo-google-fonts` | Chosen | Distinctive pair that both include the rupee sign and open-licensed. Familjen Grotesk's digits align by default. Petrona needs tabular numerals switched on for any number. Details in the [brand guidelines](../assets/brand/BRAND_GUIDELINES.md) |
@@ -128,12 +133,9 @@ Choose between tokens and server sessions in the login milestone, before any pub
 5. How is it tested and observed?
 6. Could it be a function call instead of a distributed message?
 
-## 11. Planned ADRs
+## 11. ADRs
 
-Write each when the decision is made.
+Written in [adr](adr/): 0001 modular monolith, 0002 HTTP layer, 0003 money representation. Still to write when decided:
 
-- `0001-modular-monolith.md`
-- `0002-http-layer.md`
-- `0003-money-representation.md`
 - `0004-transactional-outbox.md`
 - `0005-event-transport.md`

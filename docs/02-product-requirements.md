@@ -30,7 +30,7 @@ A dependable way to enter or import personal transactions and understand spendin
 | Events and outbox worker | Yes (M5 and M6) | | |
 | Login for real users | No (local test user) | Separate milestone before real data or hosting | |
 | Dashboard | Balances, month and category totals | Trends | Predictive cash flow |
-| Recurring-transaction insights | | Rule-based detection | Confidence-scored ML |
+| Recurring-transaction insights | | Rule-based detection | Learned scorer on top of the rules |
 | Budget alerts | | Optional | Adaptive alerts |
 | AI assistant | No | No | Read-only assistant (M10), then proposed actions with confirmation |
 | Payment initiation | No | No | Out of scope until separately justified |
@@ -121,6 +121,7 @@ FR-11 and FR-12 are part of v0.1 (milestones M5 and M6) and are architecture-lea
 - Secrets live in environment variables or a secrets manager.
 - Minimize personal data. Redact descriptions, account identifiers and statement contents from logs.
 - Encrypt traffic in hosted deployments. Deleting an account removes all of its data. A longer retention policy is written before onboarding real users.
+- The owner's own bank statement is the one exception to "no real data": private git-ignored folder, own machine, local database, no hosting, no outside AI service (see [AI and ML Design](07-ai-ml-design.md)).
 - v0.1 uses one built-in test user and runs locally only. Real login (tokens or server sessions, chosen then) is a separate milestone before any real data or hosting.
 
 **Performance and accessibility**

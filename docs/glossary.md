@@ -32,6 +32,14 @@ Plain-language definitions of terms used across these docs. Money terms are defi
 | **Composition root** | The single place where an application's parts are created and connected to each other. |
 | **ADR** | Architecture decision record: a short file describing one design decision and why it was made. Replaced decisions are kept and marked as superseded. |
 | **CSV** | A plain text table where values are separated by commas. |
+| **ML service** | A small separate Python program that runs the models. The Node backend asks it for suggestions after saving a transaction. |
+| **FastAPI** | A Python library that turns typed functions into web endpoints and describes them in the OpenAPI format. |
+| **OpenAPI** | A machine-readable description of a web service's endpoints and fields. Used to generate TypeScript types from the Python service. |
+| **uv** | A Python tool that creates isolated environments and pins exact package versions in a lock file. |
+| **Retraining** | Rebuilding a model from all examples so far, then testing it before it replaces the old one. |
+| **Held-back test set** | Examples kept out of training, used only to score a model honestly. |
+| **SLM** | Small language model: a compact chat-style AI that can run on one machine. |
+| **Type stripping** | Node removing TypeScript type labels at run time so a `.ts` file runs directly. It does not check types. |
 | **Typeface** | A named design of letters and digits, such as Petrona or Familjen Grotesk. In everyday speech, "font". |
 | **Tabular numerals** | Digits that all take the same width, so figures in a column line up (1,111.11 sits exactly above 8,888.88). Without them, a narrow "1" shifts the digits beside it. |
 

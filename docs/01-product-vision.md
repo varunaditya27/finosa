@@ -93,13 +93,15 @@ The plan is incremental: define explicit domain events first, then add durable d
 1. **Users:** v0.1 runs locally with made-up data and one built-in test user. Every record still has an owner, so real login can be added later. Real login is a separate step before any real financial data or online hosting.
 2. **Getting data in:** manual entry first, then one CSV template that FinOSA defines. No bank-specific parsing.
 3. **Balances:** a calculated balance: the stated opening balance plus recorded movements. It is labeled as calculated, and a check against statement balances comes later.
-4. **AI:** none in v0.1 or v0.2. Rule-based category suggestions come first (roadmap M7), and a read-only assistant much later (M10).
+4. **AI:** none in v0.1 or v0.2. Category suggestions and repeating-payment detection come first (roadmap M7), then spending forecasts, and a read-only assistant much later (M10). The design is in [AI and ML Design](07-ai-ml-design.md).
 5. **Scope of v0.1:** roadmap milestones M0 to M6, which includes in-process events and the durable outbox worker.
 
-Still deferred, each with its own trigger: API hosting (after the login milestone), the login method (tokens or server sessions, chosen in that milestone), the message broker (M8), and the AI provider (M10).
+Still deferred, each with its own trigger: API hosting (after the login milestone), the login method (tokens or server sessions, chosen in that milestone), the message broker (M8), and the hosted language-model provider (M10; the Gemini API is a candidate).
 
 ## 11. Decision status
 
 **Established:** the FinOSA name and personal-finance-agent vision; Node.js and TypeScript for the backend on plain `node:http` with Zod, without NestJS; npm workspaces; PostgreSQL accessed through Prisma ORM pinned to 7.x; React Native with Expo for the client; event-driven design as a learning goal.
 
-**Deferred:** API hosting, login method, message broker, AI provider (see section 10).
+**Established for AI:** a separate Python ML service, swappable models behind one interface, hand-run retraining.
+
+**Deferred:** API hosting, login method, message broker, hosted language-model provider (see section 10).
