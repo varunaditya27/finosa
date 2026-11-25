@@ -47,6 +47,9 @@ Design stage: the only code so far is a mock mobile app with made-up data in [ap
 4. [Domain Model and Data Design](docs/04-domain-model.md): the meaning of financial terms and the data rules
 5. [Event-Driven Design](docs/05-event-driven-design.md): how events and reliable delivery will be introduced
 6. [Development and Learning Roadmap](docs/06-development-roadmap.md): milestones and what each one teaches
+7. [AI and ML Design](docs/07-ai-ml-design.md): planned AI features, the Python service and how models are swapped and measured
+
+Decision records are in [docs/adr](docs/adr).
 
 New to a term? See the [glossary](docs/glossary.md). Logos, colors and brand guidelines are in [assets/brand](assets/brand).
 
