@@ -1,14 +1,7 @@
-import type { IncomingMessage, RequestListener, ServerResponse } from "node:http";
-import { sendJson } from "./infrastructure/http/response.ts";
-import { getHealth } from "./modules/health/health.controller.ts";
+import type { RequestListener } from "node:http";
+import { createRouter } from "./infrastructure/http/router.ts";
+import { healthRoutes } from "./modules/health/health.routes.ts";
 
 export function createApp(): RequestListener {
-  return (req: IncomingMessage, res: ServerResponse) => {
-    const { pathname } = new URL(req.url ?? "/", "http://localhost");
-    if (req.method === "GET" && pathname === "/health") {
-      getHealth(req, res);
-      return;
-    }
-    sendJson(res, 404, { error: "not_found" });
-  };
+  return createRouter([...healthRoutes]);
 }
